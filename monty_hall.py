@@ -57,39 +57,39 @@ import unittest
 
 class MontyHallTest(unittest.TestCase):
     def setUp(self):
-        self.mh = MontyHall()
-        self.door_options = ["car", "goat"]
-        self.assert_message = "Door one should contain car or goat"
-
-    def tearDown(self):
-        pass
+        self.monty_hall = MontyHall()
+        self.door_options = [self.monty_hall.winner_prize,
+                             self.monty_hall.loser_prize]
 
     def test_monty_hall_create_doors(self):
-        doors = self.mh.create_doors()
+        doors = self.monty_hall.create_doors()
+        assert_message = "Door one should contain %s or %s"\
+                         % (self.monty_hall.winner_prize,
+                            self.monty_hall.loser_prize)
 
         for door in doors:
-            self.assertIn(door, self.door_options, self.assert_message)
+            self.assertIn(door, self.door_options, assert_message)
 
     def test_monty_hall_get_random_door(self):
-        self.assertIn(self.mh.get_random_door(), range(0, 3))
+        self.assertIn(self.monty_hall.get_random_door(), range(0, 3))
 
     def test_monty_hall_choose_door(self):
         doors = ["goat", "car", "goat"]
-        self.assertFalse(self.mh.choose_door(doors, 0))
-        self.assertTrue(self.mh.choose_door(doors, 1))
-        self.assertFalse(self.mh.choose_door(doors, 2))
+        self.assertFalse(self.monty_hall.choose_door(doors, 0))
+        self.assertTrue(self.monty_hall.choose_door(doors, 1))
+        self.assertFalse(self.monty_hall.choose_door(doors, 2))
 
         doors = ["car", "goat", "goat"]
-        self.assertTrue(self.mh.choose_door(doors, 0))
-        self.assertFalse(self.mh.choose_door(doors, 1))
-        self.assertFalse(self.mh.choose_door(doors, 2))
+        self.assertTrue(self.monty_hall.choose_door(doors, 0))
+        self.assertFalse(self.monty_hall.choose_door(doors, 1))
+        self.assertFalse(self.monty_hall.choose_door(doors, 2))
 
     def test_monty_hall_get_winner_prize_position(self):
         doors = ["goat", "car", "goat"]
-        self.assertEqual(self.mh.get_winner_prize_position(doors), 1)
+        self.assertEqual(self.monty_hall.get_winner_prize_position(doors), 1)
 
         doors = ["goat", "goat", "car"]
-        self.assertEqual(self.mh.get_winner_prize_position(doors), 2)
+        self.assertEqual(self.monty_hall.get_winner_prize_position(doors), 2)
 
 
 if __name__ == '__main__':
