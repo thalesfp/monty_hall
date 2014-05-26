@@ -3,6 +3,8 @@ Monty Hall
 
 Solve the Monty Hall problem (http://en.wikipedia.org/wiki/Monty_Hall_problem)
 
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/4Lb-6rxZxx0/0.jpg)](http://www.youtube.com/watch?v=4Lb-6rxZxx0)
+
 ## License
 
 Monty Hall is released under the [MIT License](http://www.opensource.org/licenses/MIT).
