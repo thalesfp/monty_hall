@@ -60,4 +60,4 @@ if __name__ == '__main__':
 
     print "The wins should be about twice the losses:"
     print "Wins: %s" % play_monty_hall.get_wins()
-    print "Defeats: %s" % play_monty_hall.get_loss()
+    print "Loss: %s" % play_monty_hall.get_loss()
