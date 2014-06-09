@@ -10,7 +10,7 @@ class MontyHall:
 
     def create_doors(self):
         doors = [self.loser_prize] * self.number_of_doors
-        random_position = random.randint(0, 2)
+        random_position = self.get_random_door()
         doors[random_position] = self.winner_prize
 
         return doors
